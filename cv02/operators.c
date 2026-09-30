@@ -2,7 +2,7 @@
 
 
 int main() {
-    // +, -, *, / - aritmeticky operatory
+    // +, -, *, /, % - aritmeticky operatory
     int a, b;
     printf("Zadej hodnotu A: ");
     scanf("%d", &a);
@@ -52,7 +52,6 @@ int main() {
 
     //if(!(a==b)) --> ! negace vyroku
 
-    //TODO pridat binarni operatory
 
     // and == &
     // or == |
