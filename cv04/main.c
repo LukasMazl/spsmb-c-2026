@@ -75,13 +75,14 @@ int obrat(int cislo)
     return obraceni;
 }
 
-void obr(int num) {
-    while(num >0) {
-        printf("%d", num %10);
+void obr(int num)
+{
+    while (num > 0)
+    {
+        printf("%d", num % 10);
         num /= 10;
     }
 }
-
 
 /*
 Načtěte celé kladné číslo a zjistěte, která číslice je v něm největší.
@@ -90,13 +91,95 @@ Příklad:
 • Výstup: 8
 */
 
+int nej(int num)
+{
+    int a = -1;
+    while (num > 0)
+    {
+        int tmp = num % 10;
+        if (tmp > a)
+        {
+            a = tmp;
+        }
+        num /= 10;
+    }
+    return a;
+}
 
+
+/*
+Načtěte celé kladné číslo a zjistěte, která číslice je v něm nejmenší.
+Příklad:
+• Vstup: 58321
+• Výstup: 1
+*/
+
+int nejmensi(int num)
+{
+    int a = 10;
+    while (num > 0)
+    {
+        int tmp = num % 10 ;
+        if (tmp < a)
+        {
+            a = tmp;
+        }
+        num /= 10;
+    }
+    return a;
+}
+
+/*
+Načtěte celé kladné číslo. Zjistěte, kolik obsahuje sudých a kolik lichých číslic.
+Příklad:
+• Vstup: 123456
+• Výstup: Sudé číslice: 3, liché číslice: 3
+*/
+
+void liche_a_sude(int h){
+    int sude = 0;
+    int liche = 0;
+ while ( h > 0)
+ {
+    if (h % 2 == 0)
+    {
+        sude++;
+    }
+    else
+    {
+        liche++;
+    }
+    h /= 10;
+}
+ printf("Pocet sudych je : %d\n pocet lichych je : %d ", sude, liche);
+}
+
+/*
+Načtěte celé kladné číslo a zjistěte, kolikrát se v něm nachází číslice 0.
+Příklad:
+• Vstup: 10203040
+• Výstup: 4
+*/
+
+int pocet_nul(int g){
+    int num=0;
+    while (g > 0)
+    {
+        if (g % 10 == 0)
+        {
+            num++;
+        }
+        g /= 10;
+    }
+    return num;
+}
 
 int main(int argc, char const *argv[])
 {
-    int result = obrat (12345);
+    int result = pocet_nul(1064030);
     printf("%d", result);
     // printf("Hello world");
     prvni_a_posledni(4213);
+    liche_a_sude(4235);
     return 0;
 }
