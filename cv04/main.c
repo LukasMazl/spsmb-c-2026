@@ -347,7 +347,8 @@ int druha_nejvetsi(int n)
             nejvetsi = cislice;
         }
 
-        if (cislice > druhy && cislice < nejvetsi) {
+        if (cislice > druhy && cislice < nejvetsi)
+        {
             druhy = cislice;
         }
         n = n / 10;
@@ -355,13 +356,156 @@ int druha_nejvetsi(int n)
     return druhy;
 }
 
+/*
+Kontrola prvočísla
+Načtěte celé číslo a zjistěte, zda je prvočíslem.
+Příklad:
+• Vstup: 17
+• Výstup: Číslo je prvočíslo.
+*/
+
+int prvocislo(int n)
+{
+    for (int i = 2; i < n; i++)
+    {
+        if (n % i == 0)
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+/*
+Načtěte celé kladné číslo a zjistěte, zda je dokonalé. Dokonalé číslo je rovno součtu všech svých
+kladných dělitelů kromě sebe sama.
+Příklad:
+• Vstup: 28
+• Výstup: Číslo je dokonalé.
+*/
+int dokonale_cislo(int num)
+{
+    int soucet = 0;
+    for (int i = 1; i < num; i++)
+    {
+        if (num % i == 0)
+        {
+            soucet += i;
+        }
+    }
+    if (soucet == num)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/*Načtěte tři celá čísla a vypište je vzestupně bez použití funkcí pro řazení.*/
+
+void serazeni()
+{
+    int a;
+    int b;
+    int c;
+
+    printf("Zadej cislo A: \n");
+    scanf("%d", &a);
+
+    printf("Zadej cislo B: \n");
+    scanf("%d", &b);
+
+    printf("Zadej cislo C: \n");
+    scanf("%d", &c);
+
+    if (a > b && b > c)
+    {
+        printf("%d, %d, %d", a, b, c);
+    }
+
+    if (a > c && c > b)
+    {
+        printf("%d, %d, %d", a, c, b);
+    }
+
+    if (b > a && a > c)
+    {
+        printf("%d, %d, %d", b, a, c);
+    }
+
+    if (b > c && c > a)
+    {
+        printf("%d, %d, %d", b, c, a);
+    }
+
+    if (c > b && b > a)
+    {
+        printf("%d, %d, %d", c, b, a);
+    }
+
+    if (c > a && a > b)
+    {
+        printf("%d, %d, %d", c, a, b);
+    }
+}
+
+/*
+Načtěte pět čísel a vypočítejte jejich aritmetický průměr
+*/
+void prumer()
+{
+    int a, b, c, d, e;
+    printf("zadej pet cisel: ");
+    scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+    float avg = (a + b + c + d + e) / 5.0;
+    printf("prumer cisel je: %f\n", avg);
+}
+
+/*Načtěte dvě celá čísla určující interval. Vypočítejte součet všech celých čísel mezi nimi včetně
+krajních hodnot.*/
+
+void soucetvinter()
+{
+    int a, b, soucet = 0;
+    printf("Zadej a");
+    scanf("%d", &a);
+    printf("Zadej b");
+    scanf("%d", &b);
+    for (int i = a; i <= b; i++)
+    {
+        soucet += i;
+    }
+    printf("%d je soucet cisel v intervalu", soucet);
+}
+
+/*
+Načtěte dvě čísla a zjistěte, kolik sudých čísel se nachází mezi nimi včetně krajních hodnot.
+*/
+
+void sudmezi()
+{
+    int a, b, p;
+    printf("zadej hodnoty");
+    scanf("%d %d", &a, &b);
+    for (int i = a; i <= b; i++)
+    {
+        if (i % 2 == 0)
+        {
+            p++;
+        }
+    }
+    printf("%d", p);
+}
+
 int main(int argc, char const *argv[])
 {
-
-    int result = druha_nejvetsi(58381);
-    // prevod_dnu(3);
+    sudmezi();
+    // int result = dokonale_cislo(6);
+    //  prevod_dnu(3);
+    // serazeni();
+    // prumer();
     // printf("%f ", prevod_celsia(28.0));
-    printf("%d", result);
+    // printf("%d", result);
     // printf("Hello world");
     // prvni_a_posledni(4213);
     //  liche_a_sude(4235);
